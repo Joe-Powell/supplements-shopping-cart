@@ -1,0 +1,327 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    /* background-color: lightseagreen; */
+}
+
+header{
+
+    background-image: url('http://s0.yellowpages.com.au/1fbdb7c7-5fac-4dbc-97bf-bc0b3d9a892b/wicked-nrg-supplements-nutrition-stuart-park-0820-image.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height:130px;
+    position: relative; 
+}
+
+/* .overlay{
+    position: absolute;
+    z-index: 1;
+    top:0;
+    left:0;
+    height:100%;
+    right:0;
+    bottom:0;
+    padding:0 ;
+    margin:0 ;
+    background-color: rgba(10,10,10, 0.3);
+
+} */
+
+nav{
+    position: absolute;
+    top:0;
+    right:0;
+    left:0;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 50px 60px 0 60px;
+
+}
+
+nav h2 {
+    color:white;
+}
+
+nav li {
+    list-style: none;
+    display: inline-block;
+    padding-right: 10px;
+    padding-left: 10px ;
+
+
+}
+
+nav li span {
+    padding-left: 5px;
+}
+
+li a {
+   
+    padding:10px;
+    border-radius: 15px;
+    background-color: white;
+    text-decoration: none;
+    box-shadow: 1px 3px 5px rgba(0,0,0, 0.5);
+}
+
+.cart ion-icon {
+    vertical-align:bottom;
+    font-size: 20px;
+
+}
+
+.cart a{
+   
+    background-color: royalblue;
+    color: white;
+    cursor: pointer;
+   
+}
+
+.container,
+ .products-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin:50px;
+    justify-content: space-between;
+  
+   
+}
+
+.image{
+    
+    margin: 20px 20px;
+    position:relative;
+    width: 75px;
+}
+
+.image img{
+    height:90px;
+    width: 100%;
+}
+
+.image h3 {
+    width:fit-content;
+}
+
+.add-cart {
+    text-decoration: none;
+    position: static;
+    display: block;
+   
+    color:white;
+    padding:2.5px 5px;
+    margin-top: 4px;
+    width:100%;
+    background-color: rgb(224, 24, 24);
+    transition:  0.3s ease-in-out;
+    /* opacity: 0; */
+    cursor: pointer;
+    text-align: center;
+   }
+
+.image:hover .cart1,
+.image:hover .cart2,
+.image:hover .cart3,
+.image:hover .cart4,
+.image:hover .cart5 {
+   
+    
+    color: black;
+    }
+
+
+    #citTotalItems {
+      width:fit-content;
+      display: block;
+
+    }
+
+
+
+/* ---------------------------CART PAGE-------------------------- */
+.product img {
+    border-radius: 5px;
+    width:70px;
+    
+}
+.products-container{
+     display: flex; 
+    max-width: 650px ;
+    justify-content: space-around;
+    margin: 0 auto;
+    margin-top: 50px;
+
+}
+.products-container ion-icon {
+    font-size: 25px;
+    color:blue;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+
+}
+
+.product-header{
+    width: 100%;
+    max-width: 650px;
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 4px solid lightgrey;
+     margin: 0 auto; 
+}
+
+.products{
+    display: flex;
+    /* justify-content: space-between; */
+    flex-wrap: wrap;
+    /* margin:30px; */
+    padding-bottom: 100px;
+}
+
+
+
+.priceTop {
+    width:15%;
+     padding-left: 6%;
+    display:flex;
+    align-items: center;
+    
+}
+
+.price {
+    width:15%;
+     padding-left: 14px;
+    display:flex;
+    align-items: center;
+    border-bottom: 1px solid lightgrey; 
+}
+
+
+
+.quantTop {
+    width:30%;
+     display: flex;
+    align-items: center;
+    padding-left: 5%;
+    
+}
+
+.quantity {
+    width:30%;
+     border-bottom: 1px solid lightgrey; 
+    display: flex;
+    align-items: center;
+    
+
+}
+
+.total {
+    width:10%;
+    border-bottom: 1px solid lightgrey; 
+    display: flex;
+    align-items: center;
+}
+
+
+.product span {
+    display: none;
+}
+
+.productTop {
+    width: 20%;
+    padding-left:14%;
+}
+
+ .product {
+    width:23%;
+    display: flex;
+    justify-content:space-between ;
+     align-items: center; 
+   
+    padding: 10px 0;
+    border-bottom: 1px solid lightgrey;
+  
+
+} 
+
+.basketTotalContainer {
+    display:flex;
+    justify-content: flex-end;
+    width:100%;
+    padding: 10px 50px;
+   
+
+}
+
+.basketTotalTitle {
+    margin-right: 10px;
+    width:50px;
+}
+
+.basketTotal{
+    width:10%;
+}
+
+
+
+
+
+
+
+@media (max-width: 450px) {
+    nav{
+        height:120px;
+        position: absolute;
+        top:0;
+        right:0;
+        left:0;
+        z-index: 2;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 30px 60px 0 10px;
+    
+    }
+
+    nav ul {
+        margin: 0px auto ;
+    }
+
+    .quantTop {
+      
+        padding-left: 8%;
+        
+    }
+
+    .product{
+        width:110px;
+    }
+
+    .productTop {
+        width: 30%;
+        padding-left:14%;
+    }
+
+    .price {
+        width:20%;
+        
+    }
+
+   
+    
+.product span {
+    display: none;
+}
+
+
+
+
+}
+
+
