@@ -1,4 +1,4 @@
-let addCartBtn = document.querySelectorAll('.add-cart');
+
 
 let products = [
     {
@@ -35,7 +35,7 @@ let products = [
 ];
 
 
-
+let addCartBtn = document.querySelectorAll('.add-cart');
 
 
 for (let i = 0; i < addCartBtn.length; i++) {
@@ -86,7 +86,7 @@ function onLoadCartNumbers() {
 
 }
 
-
+// cartNumbers is invoked inside the addCartBtn[i].addEventListener
 // cartNumbers updates the quantity of all items in localstorage and blue cart button
 function cartNumbers(product, action) {
     let productNumbers = localStorage.getItem('totalItems');
@@ -112,14 +112,13 @@ function cartNumbers(product, action) {
 }
 
 
-// tells you which item was clicked on and how many 
+
 function setItems(product) {
     let productsInCart = localStorage.getItem('productsInCart');
     productsInCart = JSON.parse(productsInCart);
 
-    if (productsInCart != null) {
+    if (productsInCart) {
         if (productsInCart[product.tag] == undefined) {
-            //upates productsInCart and  ... productsInCart pushes watever was in your productsInCart from before line 78 which is the productsInCart
             productsInCart = {
                 ...productsInCart,
                 [product.tag]: product

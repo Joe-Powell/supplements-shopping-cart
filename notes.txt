@@ -1,0 +1,102 @@
+
+----Several operations happen at the click of add cart-----
+    *ion-icons need internet connecion
+at the top of main.js we make an array of objects with each object having a name, tag, price, and incart quantity.
+there is a for loop that loops through all the addCartBtn's wic has the same amount of items as objects in the array
+cartNumbers(products[i]) and totalCost(products[i]) are invoked inside the addCartBtn[i].addEventListener which is inside a for loop,
+setItems(product) is nested inside cartNumbers(products[i]) which fires with cartNumbers()
+which they all take an argument from products[i] the current button clicked
+
+
+
+
+
+
+
+
+----------cartNumbers()--This Function updates or sets the "totalItems" in the local storage, then puts quantity in .innerHTML of .cart span---------
+ updates or sets the "totalItems"  in localstorage and blue cart button if there are any in the local starage.
+once you click on the Add cart button, cartNumbers gets fired and then it takes the individual item that was clicked on
+through the paremeter and then passes it to the setItems(product) product parameter.
+----------------------------cartNumbers() END ---------------------------------------------------------------------------------------------
+
+
+-------------------setItems()--Ths function sets the "productsInCart" in localstorage----------------------------------------------------------------
+{This function creates an object and "JSON.stringify(productsInCart)" it into the local storage}
+setItems() is nested inside cartNumbers and gets fired at the end of the codeblock. it takes in an argument of the product[i]
+and catches it as "product" inside the function. This function does not have any nested functions, instead it sets items in 
+the local storage. first it looks into local storage and checks if productsInCart exist, then it will JSON.parse so it can be used as JSON
+in the function
+            let productsInCart = localStorage.getItem('productsInCart');
+            productsInCart = JSON.parse(productsInCart);
+*
+if productsInCart exists, and if (productsInCart[product.tag] == undefined, it will then create a 
+new productsInCart object with whatever procucts were in there before with the spread opertor "...productsInCart" to add the old items, 
+then add the new "[product.tag]: product",  as well, then we can stringify and send back to the local storage.
+Inside localStorage, the inCart value will then be incremented to, productsInCart[product.tag].inCart += 1;
+else, we make an object called productsInCart...
+
+
+
+    setItems(product) {
+        if (productsInCart) {
+        if (productsInCart[product.tag] == undefined) {
+
+        productsInCart = {
+                ...productsInCart,
+                [product.tag]: product
+            }
+        }
+
+        productsInCart[product.tag].inCart += 1;
+        }
+        else {
+        product.inCart = 1;
+        productsInCart = {
+            [product.tag]: product
+        }
+
+
+    }
+
+         localStorage.setItem('productsInCart', JSON.stringify(productsInCart))
+    }
+
+------------------------------------------------------setItems() END-------------------------------------------------------------------------------------------
+
+
+
+
+---------------------------totalCost() sets the "totalCost" row in localStorage---------------------------------------------------------------------------------
+totalCost() updates the local storage, it calculates the total cost of everything and holds that value.
+this function also takes in through the arguments the products[i] as product
+
+totalCost checks to see if there is a row of totalCost, then if it is not null it will update it to being cartCost + product.price,
+else it will localStorage.setItem('totalCost', product.price);
+
+-------------------------------------------------------totalCost() END-----------------------------------------------------------------------------------------
+
+
+
+
+
+------------------------------------------------------- displayCart() -----------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------- displayCart()  END-----------------------------------------------------------------------------------------
+
+
+
+
+
+
