@@ -4,31 +4,31 @@ let products = [
     {
         name: 'Citrulline',
         tag: 'citrulline',
-        price: 15.00,
+        price: 15,
         inCart: 0
     },
     {
         name: 'Creatine',
         tag: 'creatine',
-        price: 25.00,
+        price: 25,
         inCart: 0
     },
     {
         name: 'Fish Oil',
         tag: 'fishoil',
-        price: 20.00,
+        price: 20,
         inCart: 0
     },
     {
         name: 'Whey Protein',
         tag: 'wheyprotein',
-        price: 35.00,
+        price: 35,
         inCart: 0
     },
     {
         name: 'Plant Protein',
         tag: 'plantprotein',
-        price: 45.00,
+        price: 45,
         inCart: 0
     }
 
@@ -146,7 +146,9 @@ function setItems(product) {
 function totalCost(product, action) {
     // console.log("the product price is", product.price)
     let cartCost = localStorage.getItem('totalCost');
-    cartCost = parseInt(cartCost);
+    if (cartCost) {
+        cartCost = parseFloat(cartCost);
+    }
     console.log('my cartCost is', cartCost);
     console.log('typeof cartCost:', typeof cartCost);
     console.log('my cartCost is', cartCost);
