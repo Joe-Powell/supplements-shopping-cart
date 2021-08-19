@@ -4,31 +4,31 @@ let products = [
     {
         name: 'Citrulline',
         tag: 'citrulline',
-        price: 15,
+        price: 15.00,
         inCart: 0
     },
     {
         name: 'Creatine',
         tag: 'creatine',
-        price: 25,
+        price: 25.00,
         inCart: 0
     },
     {
         name: 'Fish Oil',
         tag: 'fishoil',
-        price: 20,
+        price: 20.00,
         inCart: 0
     },
     {
         name: 'Whey Protein',
         tag: 'wheyprotein',
-        price: 35,
+        price: 35.00,
         inCart: 0
     },
     {
         name: 'Plant Protein',
         tag: 'plantprotein',
-        price: 45,
+        price: 45.00,
         inCart: 0
     }
 
@@ -146,19 +146,16 @@ function setItems(product) {
 function totalCost(product, action) {
     // console.log("the product price is", product.price)
     let cartCost = localStorage.getItem('totalCost');
-
-    console.log('my CartCost is', cartCost);
-    console.log(typeof cartCost);
+    cartCost = parseInt(cartCost);
+    console.log('my cartCost is', cartCost);
+    console.log('typeof cartCost:', typeof cartCost);
+    console.log('my cartCost is', cartCost);
 
     if (action == 'decrease') {
-        cartCost = parseInt(cartCost);
         localStorage.setItem('totalCost', cartCost - product.price)
     } else if (cartCost != null) {
-        cartCost = parseInt(cartCost);
         localStorage.setItem('totalCost', cartCost + product.price)
     } else {
-        cartCost = parseInt(cartCost);
-        // console.log(typeof cartCost);
         localStorage.setItem('totalCost', product.price);
 
     }
@@ -170,13 +167,15 @@ function totalCost(product, action) {
 
 
 
-
+// loop through the productsInCart section of the localStorage
 function displayCart() {
     let productsInCart = localStorage.getItem('productsInCart');
     productsInCart = JSON.parse(productsInCart);
     let productContainer = document.querySelector('.products');
     let cartCost = localStorage.getItem('totalCost');
-
+    cartCost = parseFloat(cartCost);
+    console.log(productsInCart)
+    console.log('type of for productsInCart:', typeof productsInCart)// object
 
     if (productsInCart && productContainer) {
         productContainer.innerHTML = '';
@@ -315,28 +314,39 @@ displayCart()
 // made to grab items amount when page loads 
 
 let productsInCart = JSON.parse(localStorage.getItem('productsInCart'));
+if (productsInCart) {
+    if (productsInCart.citrulline) {
+        const citTotalItems = document.getElementById('citTotalItems');
+        citTotalItems.innerHTML = "Quantity:" + productsInCart.citrulline.inCart;
+    }
 
-if (productsInCart.citrulline) {
-    const citTotalItems = document.getElementById('citTotalItems');
-    citTotalItems.innerHTML = "Quantity:" + productsInCart.citrulline.inCart;
+    if (productsInCart.creatine) {
+        const creaTotalItems = document.getElementById('creaTotalItems');
+        creaTotalItems.innerHTML = "Quantity:" + productsInCart.creatine.inCart;
+    }
+
+    if (productsInCart.fishoil) {
+        const fishTotalItems = document.getElementById('fishTotalItems');
+        fishTotalItems.innerHTML = "Quantity:" + productsInCart.fishoil.inCart;
+    }
+
+    if (productsInCart.wheyprotein) {
+        const wheyTotalItems = document.getElementById('wheyTotalItems');
+        wheyTotalItems.innerHTML = "Quantity:" + productsInCart.wheyprotein.inCart;
+    }
+
+    if (productsInCart.plantprotein) {
+        const plantTotalItems = document.getElementById('plantTotalItems');
+        plantTotalItems.innerHTML = "Quantity:" + productsInCart.plantprotein.inCart;
+    }
+
+
+
 }
 
-if (productsInCart.creatine) {
-    const creaTotalItems = document.getElementById('creaTotalItems');
-    creaTotalItems.innerHTML = "Quantity:" + productsInCart.creatine.inCart;
-}
 
-if (productsInCart.fishoil) {
-    const fishTotalItems = document.getElementById('fishTotalItems');
-    fishTotalItems.innerHTML = "Quantity:" + productsInCart.fishoil.inCart;
-}
 
-if (productsInCart.wheyprotein) {
-    const wheyTotalItems = document.getElementById('wheyTotalItems');
-    wheyTotalItems.innerHTML = "Quantity:" + productsInCart.wheyprotein.inCart;
-}
 
-if (productsInCart.plantprotein) {
-    const plantTotalItems = document.getElementById('plantTotalItems');
-    plantTotalItems.innerHTML = "Quantity:" + productsInCart.plantprotein.inCart;
+const obj_test = {
+
 }
